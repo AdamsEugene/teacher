@@ -88,7 +88,7 @@ const CreatingSectionWrapper = styled.div`
   flex-direction: column;
   /* justify-content: center;
   align-items: center; */
-  width: 100%;
+  width: 60%;
   /* margin-top: 64px; */
   gap: 24px;
 `;

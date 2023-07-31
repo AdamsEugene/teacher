@@ -197,7 +197,7 @@ const CreateCourseWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
-  width: 100%;
+  width: 60%;
   min-height: 82vh;
   z-index: 2;
 `;
@@ -208,7 +208,7 @@ const PageMoveButtons = styled.div`
   top: 50%;
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 100%;
   z-index: 0;
 `;
 

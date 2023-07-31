@@ -103,7 +103,7 @@ export default function Learn() {
 
 const LearnWrapper = styled.div`
   /* background-color: #07131d; */
-  width: 100%;
+  width: 60%;
   margin-bottom: 24px;
 `;
 
