@@ -25,6 +25,7 @@ const LinkItem = React.forwardRef((props: any, ref) => {
       smooth
       offset={-70}
       duration={500}
+      style={{ textAlign: "left" }}
     />
   );
 });
@@ -36,7 +37,7 @@ const PreviewContainer = React.forwardRef((props: any, ref) => {
       ref={ref as React.LegacyRef<HTMLDivElement> | undefined}
     >
       <TopPart>
-        <FlexboxGrid justify="space-between">
+        <FlexboxGrid>
           <FlexboxGrid.Item colspan={16}>
             <Stack spacing={16} direction="column" alignItems="flex-start">
               <Typography $variant="title">
@@ -106,32 +107,32 @@ export default function Preview() {
 
   return (
     <Wrapper>
-      <Affix top={80} onChange={setNavbar}>
-        <HeaderWrapper $navbar={navbar}>
-          <Nav appearance="subtle">
-            <Nav.Item {...{ to: "About" }} as={LinkItem}>
-              About
-            </Nav.Item>
-            <Nav.Item {...{ to: "Instructors" }} as={LinkItem}>
-              Instructors
-            </Nav.Item>
-            <Nav.Item {...{ to: "Syllabus" }} as={LinkItem}>
-              Syllabus
-            </Nav.Item>
-            <Nav.Item {...{ to: "Reviews" }} as={LinkItem}>
-              Reviews
-            </Nav.Item>
-            <Nav.Item {...{ to: "Enrollment Options" }} as={LinkItem}>
-              Enrollment Options
-            </Nav.Item>
-            <Nav.Item {...{ to: "FAQ" }} as={LinkItem}>
-              FAQ
-            </Nav.Item>
-          </Nav>
-        </HeaderWrapper>
-      </Affix>
       <AnimateWrapper>
         <Animate children={PreviewContainer} />
+        <Affix top={100} onChange={setNavbar}>
+          <HeaderWrapper $navbar={navbar}>
+            <Nav appearance="subtle" vertical reversed style={{ width: 200 }}>
+              <Nav.Item {...{ to: "About" }} as={LinkItem}>
+                About
+              </Nav.Item>
+              <Nav.Item {...{ to: "Instructors" }} as={LinkItem}>
+                Instructors
+              </Nav.Item>
+              <Nav.Item {...{ to: "Syllabus" }} as={LinkItem}>
+                Syllabus
+              </Nav.Item>
+              <Nav.Item {...{ to: "Reviews" }} as={LinkItem}>
+                Reviews
+              </Nav.Item>
+              <Nav.Item {...{ to: "Enrollment Options" }} as={LinkItem}>
+                Enrollment Options
+              </Nav.Item>
+              <Nav.Item {...{ to: "FAQ" }} as={LinkItem}>
+                FAQ
+              </Nav.Item>
+            </Nav>
+          </HeaderWrapper>
+        </Affix>
       </AnimateWrapper>
     </Wrapper>
   );
@@ -143,9 +144,7 @@ const Wrapper = styled.div`
 
 const AnimateWrapper = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
   width: 100%;
 `;
 
@@ -155,11 +154,11 @@ const PreviewWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 16px;
-  /* width: 100%; */
   width: calc(60%);
 `;
 
 const TopPart = styled.div`
+  display: flex;
   min-height: 300px;
   width: 100%;
   backdrop-filter: blur(16px) saturate(19%);
@@ -170,19 +169,14 @@ const TopPart = styled.div`
   padding: 16px;
 `;
 
-const BottomPart = styled.div`
-  /* margin-top: 8px; */
-`;
+const BottomPart = styled.div``;
 
 const HeaderWrapper = styled.div<{ $navbar?: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100px;
+  margin-left: 64px;
+  margin-right: -256px;
   z-index: 999;
-  background: ${({ theme, $navbar }) =>
-    $navbar ? theme.colors.background.cards : "transparent"};
-
   transition: background 0.5s ease-in-out;
 `;

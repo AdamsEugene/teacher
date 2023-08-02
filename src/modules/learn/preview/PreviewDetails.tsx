@@ -412,7 +412,7 @@ const Content = styled.div`
   .element {
     margin-bottom: 32px;
     .rs-divider {
-      margin: 92px 0 !important;
+      margin: 8px 0 !important;
     }
   }
 `;
