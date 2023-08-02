@@ -14,12 +14,12 @@ export default function Home() {
 
   const crumbs = matches
     // first get rid of any matches that don't have handle and crumb
-    .filter((match: { handle: { crumb: () => string } }) =>
+    .filter((match: any) =>
       Boolean((match.handle as { crumb: () => string })?.crumb)
     )
     // now map them into an array of elements, passing the loader
     // data to each one
-    .map((match: { handle: { crumb: () => string }; pathname: any }) => ({
+    .map((match: any) => ({
       name: (match.handle as { crumb: () => string })?.crumb(),
       path: match.pathname,
     }));
@@ -28,32 +28,11 @@ export default function Home() {
   const MyBreadcrumb = () =>
     crumbs.length > 1 ? (
       <Breadcrumb separator={<AngleRightIcon />}>
-        {crumbs
-          .slice(0, crumbs.length - 1)
-          .map(
-            (
-              crumb: {
-                path: string;
-                name:
-                  | string
-                  | number
-                  | boolean
-                  | React.ReactElement<
-                      any,
-                      string | React.JSXElementConstructor<any>
-                    >
-                  | Iterable<React.ReactNode>
-                  | React.ReactPortal
-                  | null
-                  | undefined;
-              },
-              index: React.Key | null | undefined
-            ) => (
-              <Breadcrumb.Item as={NavLink} to={crumb.path} key={index}>
-                {crumb.name}
-              </Breadcrumb.Item>
-            )
-          )}
+        {crumbs.slice(0, crumbs.length - 1).map((crumb: any, index: any) => (
+          <Breadcrumb.Item as={NavLink} to={crumb.path} key={index}>
+            {crumb.name}
+          </Breadcrumb.Item>
+        ))}
         <Breadcrumb.Item active>
           {crumbs[crumbs.length - 1].name}
         </Breadcrumb.Item>
