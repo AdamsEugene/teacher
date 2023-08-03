@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { RouteObject, createBrowserRouter } from "react-router-dom";
+import { RouteObject, createHashRouter } from "react-router-dom";
 import K from "./constants";
 // import ErrorPage from "../components/views/ErrorPage";
 
@@ -179,6 +179,6 @@ const _startUpRoutes: RouteObject[] = [
   },
 ];
 
-const router = createBrowserRouter(_startUpRoutes);
+const router = createHashRouter(_startUpRoutes);
 
 export default router;
