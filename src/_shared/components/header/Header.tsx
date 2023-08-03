@@ -2,14 +2,17 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 import { Avatar, Dropdown, IconButton, Nav, NavProps } from "rsuite";
 import AppSelectIcon from "@rsuite/icons/AppSelect";
 import SearchIcon from "@rsuite/icons/Search";
 
 export default function Header() {
-  const [active, setActive] = React.useState("learn");
+  const location = useLocation();
+  const activeTab = location.pathname.split("/")[1];
+
+  const [active, setActive] = React.useState(activeTab);
   const navigate = useNavigate();
 
   const renderIconButton = (
