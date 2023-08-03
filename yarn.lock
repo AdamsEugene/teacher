@@ -904,6 +904,14 @@
     "@babel/helper-create-regexp-features-plugin" "^7.22.5"
     "@babel/helper-plugin-utils" "^7.22.5"
 
+"@babel/polyfill@^7.12.1":
+  version "7.12.1"
+  resolved "https://registry.yarnpkg.com/@babel/polyfill/-/polyfill-7.12.1.tgz#1f2d6371d1261bbd961f3c5d5909150e12d0bd96"
+  integrity sha512-X0pi0V6gxLi6lFZpGmeNa4zxtwEmCs42isWLNjZZDE0Y8yVfgu0T2OAHlzBbdYlqbW/YXVvoBHpATEM+goCj8g==
+  dependencies:
+    core-js "^2.6.5"
+    regenerator-runtime "^0.13.4"
+
 "@babel/preset-env@^7.20.2":
   version "7.22.9"
   resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.22.9.tgz#57f17108eb5dfd4c5c25a44c1977eba1df310ac7"
@@ -1767,6 +1775,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-show-more-text@^1.4.2":
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/@types/react-show-more-text/-/react-show-more-text-1.4.2.tgz#0a704838ee750b749592ce04bd1d365de7da4846"
+  integrity sha512-CinPPhpxYFVKx4V0yqQGK0HUbHdlvLH8fQ/Ccp5XNKuQyIyc6bDMQz5b8bIBqmhMcCvn6AvSz3MmPpwNVCjmHQ==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-window@^1.8.5":
   version "1.8.5"
   resolved "https://registry.yarnpkg.com/@types/react-window/-/react-window-1.8.5.tgz#285fcc5cea703eef78d90f499e1457e9b5c02fc1"
@@ -2133,6 +2148,11 @@ core-js-compat@^3.31.0:
   integrity sha512-7a9a3D1k4UCVKnLhrgALyFcP7YCsLOQIxPd0dKjf/6GuPcgyiGP70ewWdCGrSK7evyhymi0qO4EqCmSJofDeYw==
   dependencies:
     browserslist "^4.21.9"
+
+core-js@^2.6.5:
+  version "2.6.12"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
+  integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
 
 cross-spawn@^7.0.2:
   version "7.0.3"
@@ -3025,6 +3045,14 @@ react-scroll@^1.8.9:
     lodash.throttle "^4.1.1"
     prop-types "^15.7.2"
 
+react-show-more-text@^1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/react-show-more-text/-/react-show-more-text-1.6.2.tgz#46821c0ccf5fe5e3a28932bb857393a75607f499"
+  integrity sha512-Z6tRcnEosHvo07vZw36LxCjqYq4ghgaDI273b5XcayJ1PYbT56OKbaQlPqH7W9LGF5rhUVIhEDBPURuG5eO/Uw==
+  dependencies:
+    "@babel/polyfill" "^7.12.1"
+    prop-types "^15.7.2"
+
 react-use-set@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-use-set/-/react-use-set-1.0.0.tgz#2b8b442c6e8c77a907534dcc665d54c3f7b3c841"
@@ -3081,7 +3109,7 @@ regenerate@^1.4.2:
   resolved "https://registry.yarnpkg.com/regenerate/-/regenerate-1.4.2.tgz#b9346d8827e8f5a32f7ba29637d398b69014848a"
   integrity sha512-zrceR/XhGYU/d/opr2EKO7aRHUeiBI8qjtfHqADTwZd6Szfy16la6kqD0MIUs5z5hx6AaKa+PixpPrR289+I0A==
 
-regenerator-runtime@^0.13.11:
+regenerator-runtime@^0.13.11, regenerator-runtime@^0.13.4:
   version "0.13.11"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz#f6dca3e7ceec20590d07ada785636a90cdca17f9"
   integrity sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==

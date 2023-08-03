@@ -266,7 +266,7 @@ const GlobalStyle = createGlobalStyle`
       border: none !important;
       outline: none !important;
     }
-    .ck.ck-input:focus {
+    .rs-nav-subtle.rs-nav-vertical .rs-nav-bar, .ck.ck-input:focus {
       border: 1px solid ${({ theme }) =>
         theme.colors.border.primary} !important;
     }
@@ -298,6 +298,11 @@ const GlobalStyle = createGlobalStyle`
 
     svg {
       fill: ${({ theme }) => theme.colors.icon.primary};
+    }
+
+   .rs-radio-tile, .rs-panel-group>.rs-panel+.rs-panel:before {
+      border: 1px solid ${({ theme }) =>
+        theme.colors.border.primary} !important;
     }
 `;
 

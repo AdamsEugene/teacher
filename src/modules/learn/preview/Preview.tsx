@@ -23,8 +23,8 @@ const LinkItem = React.forwardRef((props: any, ref) => {
       to={props.to as string}
       spy
       smooth
-      offset={-70}
-      duration={500}
+      offset={-80}
+      duration={600}
       style={{ textAlign: "left" }}
     />
   );
