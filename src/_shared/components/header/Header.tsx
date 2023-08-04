@@ -105,8 +105,9 @@ const MainWrapper = styled.div`
   display: flex;
   justify-content: center;
   width: 60%;
+  height: 70px;
   gap: 64px;
-  padding-top: 30px;
+  padding-top: 8px;
   transition: all 0.3s ease-in-out;
 `;
 

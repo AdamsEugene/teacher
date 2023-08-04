@@ -26,6 +26,33 @@ const signupChildren: RouteObject[] = [
   },
 ];
 
+const planChildren: RouteObject[] = [
+  {
+    id: K.plan.id,
+    path: K.plan.path,
+    element: <K.plan.element />,
+    errorElement: <h1>plan</h1>,
+  },
+  {
+    id: K.createSubject.id,
+    path: K.createSubject.path,
+    element: <K.createSubject.element />,
+    errorElement: <h1>createSubject</h1>,
+    handle: {
+      crumb: () => "Create",
+    },
+  },
+  {
+    id: K.subjectCreate.id,
+    path: K.subjectCreate.path,
+    element: <K.subjectCreate.element />,
+    errorElement: <h1>subjectCreate</h1>,
+    handle: {
+      crumb: () => "Subject",
+    },
+  },
+];
+
 const dashboardChildren: RouteObject[] = [
   {
     id: K.settings.id,
@@ -37,13 +64,14 @@ const dashboardChildren: RouteObject[] = [
     },
   },
   {
-    id: K.plan.id,
-    path: K.plan.path,
-    element: <K.plan.element />,
+    id: K.planOutlet.id,
+    path: K.planOutlet.path,
+    element: <K.planOutlet.element />,
     errorElement: <h1>plan</h1>,
     handle: {
       crumb: () => "Plane",
     },
+    children: planChildren,
   },
   {
     id: K.teach.id,

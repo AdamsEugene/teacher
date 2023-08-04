@@ -82,7 +82,8 @@ const HeaderWrapper = styled.div<{ $navbar?: boolean }>`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100px;
+  height: 70px;
+  margin-bottom: 24px;
   z-index: 999;
   background: ${({ theme, $navbar }) =>
     $navbar ? theme.colors.background.cards : "transparent"};

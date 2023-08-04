@@ -1,7 +1,7 @@
 import { Avatar, FlexboxGrid, Form, Input, Tag, TagGroup } from "rsuite";
 import { styled } from "styled-components";
-import { InstructorData, MEDIA_COLORS } from "../@types";
-import ConditionalRender from "../../../_shared/components/ConditionalRender";
+import { InstructorData, MEDIA_COLORS } from "../../../modules/learn/@types";
+import ConditionalRender from "../ConditionalRender";
 
 interface Props {
   instructor?: Partial<InstructorData>;

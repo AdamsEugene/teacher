@@ -21,15 +21,18 @@ import { GiDiamondHard } from "react-icons/gi";
 import { MdOutlineAirlineSeatReclineNormal } from "react-icons/md";
 import { BiHappyAlt } from "react-icons/bi";
 
-import Card from "../../../_shared/components/card/Card";
-import AvatarUploader from "../../../_shared/components/AvatarUploader";
-import CustomMessage from "../../../_shared/components/Message";
-import { DataProps } from "../@types";
+import Card from "../card/Card";
+import AvatarUploader from "../AvatarUploader";
+import CustomMessage from "../Message";
+import { DataProps } from "../../../modules/learn/@types";
 
 const CourseInfoBasic = React.forwardRef((props: any, ref) => {
-  const { setStepData, ...others } = props;
+  const { setStepData, setCurrent, ...others } = props;
   const _setStepData = setStepData as React.Dispatch<
     React.SetStateAction<DataProps[]>
+  >;
+  const _setCurrent = setCurrent as React.Dispatch<
+    React.SetStateAction<number>
   >;
 
   const toaster = useToaster();
@@ -41,6 +44,7 @@ const CourseInfoBasic = React.forwardRef((props: any, ref) => {
         if (i === 2) {
           data.status = "finish";
         }
+        _setCurrent(3);
         return data;
       })
     );

@@ -4,7 +4,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import { styled } from "styled-components";
-import Card from "../../../_shared/components/card/Card";
+import Card from "../card/Card";
 import {
   Button,
   ButtonToolbar,
@@ -14,8 +14,8 @@ import {
   Panel,
   SelectPicker,
 } from "rsuite";
-import AvatarUploader from "../../../_shared/components/AvatarUploader";
-import { DataProps } from "../@types";
+import AvatarUploader from "../AvatarUploader";
+import { DataProps } from "../../../modules/learn/@types";
 
 const data = ["Lloyd", "Alice", "Julia", "Albert"].map((item) => ({
   label: item,
@@ -23,16 +23,21 @@ const data = ["Lloyd", "Alice", "Julia", "Albert"].map((item) => ({
 }));
 
 const PersonalInfo = React.forwardRef((props: any, ref) => {
-  const { setStepData, ...others } = props;
+  const { setStepData, setCurrent, ...others } = props;
   const _setStepData = setStepData as React.Dispatch<
     React.SetStateAction<DataProps[]>
   >;
+  const _setCurrent = setCurrent as React.Dispatch<
+    React.SetStateAction<number>
+  >;
+
   const save = () => {
     _setStepData((p) =>
       p.map((data, i) => {
         if (i === 0) {
           data.status = "finish";
         }
+        _setCurrent(1);
         return data;
       })
     );
