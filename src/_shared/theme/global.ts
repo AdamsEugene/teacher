@@ -95,7 +95,8 @@ const GlobalStyle = createGlobalStyle`
     /* INPUT */
   .rs-input {
     background:${({ theme }) => theme.colors.background.primary};
-    border-color:${({ theme }) => theme.colors.border.primary}
+    border-color:${({ theme }) => theme.colors.border.primary};
+    color: ${({ theme }) => theme.colors.icon.primary} ;
   }
   .react-tel-input .form-control{
      background:${({ theme }) => theme.colors.background.primary};
@@ -137,6 +138,18 @@ const GlobalStyle = createGlobalStyle`
     background:${({ theme }) => theme.colors.background.cards} !important;
   }
 
+  .rs-picker-menu .rs-picker-search-bar .rs-picker-search-bar-input {
+    background:${({ theme }) => theme.colors.background.primary} !important;
+  }
+
+  .rs-picker-select-menu-item.rs-picker-select-menu-item-active {
+    background:${({ theme }) => theme.colors.background.cards} !important;
+  }
+
+  .rs-picker-select-menu-item.rs-picker-select-menu-item-focus, .rs-picker-select-menu-item:focus, .rs-picker-select-menu-item:hover {
+     background:${({ theme }) => theme.colors.background.cards} !important;
+  }
+
   /* UPLOAD */
   .rs-uploader-draggable .rs-uploader-trigger-customize .rs-uploader-trigger-btn {
     background:${({ theme }) => theme.colors.background.primary} !important;
@@ -175,7 +188,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .rs-nav-justified>.rs-dropdown, .rs-nav-justified>.rs-nav-item {
-    /* height:45px */
+    /* height:45px; */
     border: none
   }
 
@@ -303,6 +316,17 @@ const GlobalStyle = createGlobalStyle`
    .rs-radio-tile, .rs-panel-group>.rs-panel+.rs-panel:before {
       border: 1px solid ${({ theme }) =>
         theme.colors.border.primary} !important;
+    }
+
+    .rs-tag, .rs-modal-content {
+      background: ${({ theme }) => theme.colors.background.cards};
+      color: ${({ theme }) => theme.colors.text.primary};
+    }
+
+    /* MODAL */
+
+    .rs-modal-title {
+      color: ${({ theme }) => theme.colors.text.primary};
     }
 `;
 

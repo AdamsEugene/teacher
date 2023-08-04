@@ -13,7 +13,10 @@ import LearnOutlet from "../modules/learn/LearnOutlet";
 import Preview from "../modules/learn/preview/Preview";
 import SectionContent from "../modules/learn/SectionContent";
 import SectionContentType from "../modules/learn/SectionContentType";
+import CreateSubject from "../modules/plan/CreateSubject";
 import Plan from "../modules/plan/Plan";
+import PlanOutlet from "../modules/plan/PlanOutlet";
+import Subject from "../modules/plan/Subject";
 import Setting from "../modules/settings/Settings";
 import Teach from "../modules/teach/Teach";
 import { Route, RouteConstant } from "./@types";
@@ -88,6 +91,30 @@ const settings = {
   path: "/settings",
   icon: "creative commons" as string,
   element: Setting,
+  children: null,
+};
+const planOutlet = {
+  id: "planOutlet",
+  displayName: "plan Outlet",
+  path: "/plan",
+  icon: "slideshare" as string,
+  element: PlanOutlet,
+  children: null,
+};
+const createSubject = {
+  id: "createSubject",
+  displayName: "Subject Creator",
+  path: "/plan/create",
+  icon: "creative commons" as string,
+  element: Subject,
+  children: null,
+};
+const subjectCreate = {
+  id: "subjectCreate",
+  displayName: "Create Subject",
+  path: "/plan/subject",
+  icon: "creative commons" as string,
+  element: CreateSubject,
   children: null,
 };
 
@@ -189,6 +216,9 @@ const ROUTES_CONSTANTS: RouteConstant = {
   coursePreview,
   settings,
   myCourses,
+  planOutlet,
+  createSubject,
+  subjectCreate,
 };
 
 export const router: Route[] = [
