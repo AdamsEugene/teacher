@@ -4,22 +4,18 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import React, { useState } from "react";
 import { styled } from "styled-components";
-import PageNextIcon from "@rsuite/icons/PageNext";
-import PagePreviousIcon from "@rsuite/icons/PagePrevious";
 import AddOutlineIcon from "@rsuite/icons/AddOutline";
-import { Avatar, AvatarGroup, Button, FlexboxGrid, IconButton } from "rsuite";
-import { useNavigate } from "react-router-dom";
+import { Avatar, AvatarGroup, Button, FlexboxGrid } from "rsuite";
 
 import Animate from "../../_shared/components/Animate";
 import CustomSteps from "../../_shared/components/CustomSteps";
 import Typography from "../../_shared/components/Typography";
-import PersonalInfo from "./form/PersonalInfo";
-import FloatingButton from "../../_shared/components/FloatingButton";
-import CourseInfoBasic from "./form/CourseInfoBasic";
-import Instructors from "./form/Instructors";
+import PersonalInfo from "../../_shared/components/form/PersonalInfo";
+import CourseInfoBasic from "../../_shared/components/form/CourseInfoBasic";
+import Instructors from "../../_shared/components/form/Instructors";
 import { DataProps, InstructorData } from "./@types";
 import { StyledDrawer } from "../../_shared/components/StyledDrawer";
-import ViewInstructor from "./form/ViewInstructor";
+import ViewInstructor from "../../_shared/components/form/ViewInstructor";
 
 const data: DataProps[] = [
   { title: "Personal Info", status: "wait" },
@@ -30,7 +26,14 @@ const data: DataProps[] = [
 ];
 
 const CreateCourseContainer = React.forwardRef((props: any, ref) => {
-  const { current, setInstructors, stepData, setStepData, ...others } = props;
+  const {
+    current,
+    setInstructors,
+    stepData,
+    setStepData,
+    setCurrent,
+    ...others
+  } = props;
   const [addInstructor, setAddInstructor] = useState(false);
   const _current = current as number;
 
@@ -71,7 +74,7 @@ const CreateCourseContainer = React.forwardRef((props: any, ref) => {
       <Animate
         children={PersonalInfo}
         inn={_current === 0}
-        others={{ setStepData }}
+        others={{ setStepData, setCurrent }}
       />
       <Animate
         children={Instructors}
@@ -81,27 +84,28 @@ const CreateCourseContainer = React.forwardRef((props: any, ref) => {
           setStepData,
           addInstructor,
           setAddInstructor,
+          setCurrent,
         }}
       />
       <Animate
         children={CourseInfoBasic}
         inn={_current === 2}
-        others={{ setStepData }}
+        others={{ setStepData, setCurrent }}
       />
       <Animate
         children={CourseInfoBasic}
         inn={_current === 3}
-        others={{ setStepData }}
+        others={{ setStepData, setCurrent }}
       />
       <Animate
         children={PersonalInfo}
         inn={_current === 4}
-        others={{ setStepData }}
+        others={{ setStepData, setCurrent }}
       />
       <Animate
         children={PersonalInfo}
         inn={_current === 5}
-        others={{ setStepData }}
+        others={{ setStepData, setCurrent }}
       />
     </CreateCourseWrapper>
   );
@@ -113,21 +117,6 @@ export default function CreateCourse() {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [stepData, setStepData] = useState(data);
   const [instructor, setInstructor] = useState<Partial<InstructorData>>();
-
-  const navigate = useNavigate();
-
-  const onProceed = () => {
-    navigate("section");
-  };
-
-  const move = (where: "left" | "right") => {
-    if (where === "left" && current > 0) {
-      setCurrent((p) => p - 1);
-    }
-    if (where === "right" && current < data.length - 1) {
-      setCurrent((p) => p + 1);
-    }
-  };
 
   const RenderInstructors = React.forwardRef((props, ref) => {
     return (
@@ -160,28 +149,8 @@ export default function CreateCourse() {
     <>
       <Animate inn={current === 1} children={RenderInstructors} />
       <Animate
-        others={{ current, setInstructors, stepData, setStepData }}
         children={CreateCourseContainer}
-      />
-      <PageMoveButtons>
-        <IconButton
-          icon={<PagePreviousIcon style={{ fontSize: "4em" }} />}
-          circle
-          size="lg"
-          onClick={() => move("left")}
-          appearance="subtle"
-        />
-        <IconButton
-          icon={<PageNextIcon style={{ fontSize: "4em" }} />}
-          circle
-          size="lg"
-          onClick={() => move("right")}
-          appearance="subtle"
-        />
-      </PageMoveButtons>
-      <Animate
-        children={FloatingButton}
-        others={{ title: "Proceed", onClick: onProceed }}
+        others={{ current, setInstructors, stepData, setStepData, setCurrent }}
       />
       <StyledDrawer
         open={openDrawer}
@@ -200,16 +169,6 @@ const CreateCourseWrapper = styled.div`
   width: 60%;
   min-height: 82vh;
   z-index: 2;
-`;
-
-const PageMoveButtons = styled.div`
-  position: fixed;
-  /* left: -15%; */
-  top: 50%;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  z-index: 0;
 `;
 
 const ButtonWrapper = styled.div``;

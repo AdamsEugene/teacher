@@ -14,7 +14,7 @@ import {
 } from "react-icons/ai";
 import { FaTwitter, FaTiktok } from "react-icons/fa";
 import { CgWebsite } from "react-icons/cg";
-import { socialLinksModel } from "../schema/socialLinks.schema";
+import { socialLinksModel } from "../../../modules/learn/schema/socialLinks.schema";
 
 interface MediaData {
   onChange: (value: string, e: any) => void;

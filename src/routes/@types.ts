@@ -31,5 +31,8 @@ export interface RouteConstant {
   learning: Route;
   coursePreview: Route;
   myCourses: Route;
+  planOutlet: Route;
+  createSubject: Route;
+  subjectCreate: Route;
   settings: Route;
 }

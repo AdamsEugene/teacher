@@ -5,7 +5,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { useCallback, useEffect, useState, useRef } from "react";
 import { styled } from "styled-components";
-import Card from "../../../_shared/components/card/Card";
+import Card from "../card/Card";
 import {
   Button,
   ButtonToolbar,
@@ -21,8 +21,8 @@ import {
 } from "rsuite";
 import AddOutlineIcon from "@rsuite/icons/AddOutline";
 
-import AvatarUploader from "../../../_shared/components/AvatarUploader";
-import { StyledDrawer } from "../../../_shared/components/StyledDrawer";
+import AvatarUploader from "../AvatarUploader";
+import { StyledDrawer } from "../StyledDrawer";
 import SocialMedia from "./SocialMedia";
 import {
   DataProps,
@@ -30,8 +30,8 @@ import {
   MEDIA_COLORS,
   SocialMediaFormData,
   socialUrls,
-} from "../@types";
-import { instructorModel } from "../schema/instructor.schema";
+} from "../../../modules/learn/@types";
+import { instructorModel } from "../../../modules/learn/schema/instructor.schema";
 
 const data = ["Lloyd", "Alice", "Julia", "Albert"].map((item) => ({
   label: item,
@@ -52,6 +52,7 @@ const Instructors = React.forwardRef((props: any, ref) => {
     setStepData,
     addInstructor,
     setAddInstructor,
+    setCurrent,
     ...others
   } = props;
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -68,6 +69,9 @@ const Instructors = React.forwardRef((props: any, ref) => {
   >;
   const _setAddInstructor = setAddInstructor as React.Dispatch<
     React.SetStateAction<boolean>
+  >;
+  const _setCurrent = setCurrent as React.Dispatch<
+    React.SetStateAction<number>
   >;
   const _addInstructor = addInstructor as boolean;
 
@@ -98,11 +102,18 @@ const Instructors = React.forwardRef((props: any, ref) => {
           if (i === 1) {
             data.status = "finish";
           }
+          _setCurrent(2);
           return data;
         })
       );
     }
-  }, [_setAddInstructor, _setInstructors, _setStepData, instructor]);
+  }, [
+    _setAddInstructor,
+    _setCurrent,
+    _setInstructors,
+    _setStepData,
+    instructor,
+  ]);
 
   useEffect(() => {
     _addInstructor && getInstructor();
@@ -336,7 +347,7 @@ const AddButton = styled(Tag)`
 `;
 
 const TagWrapper = styled(Tag)<{ $bg: string }>`
-  background: ${({ $bg }) => $bg};
+  background: ${({ $bg }) => $bg} !important;
 
   a {
     color: #fff;

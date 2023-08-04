@@ -138,4 +138,5 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 400px;
+  cursor: pointer;
 `;
