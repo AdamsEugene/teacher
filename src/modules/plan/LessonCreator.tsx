@@ -1,27 +1,25 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
-import { styled } from "styled-components";
 import Animate from "../../_shared/components/Animate";
 import { FlexboxGrid } from "rsuite";
 import Typography from "../../_shared/components/Typography";
 import CustomSteps from "../../_shared/components/CustomSteps";
 import { DataProps } from "../learn/@types";
 import PersonalInfo from "../../_shared/components/form/PersonalInfo";
-import SubjectInfo from "../../_shared/components/form/SubjectInfo";
-import SubjectSummary from "../../_shared/components/form/SubjectSummary";
+import { FormWrapper } from "../../_shared/components/form/@styles";
 
 const data: DataProps[] = [
   { title: "Personal Info", status: "wait" },
-  { title: "Subject Info", status: "wait" },
+  { title: "LessonCreator Info", status: "wait" },
   { title: "Summary", status: "wait" },
 ];
 
-const SubjectContainer = React.forwardRef((props: any, ref) => {
+const LessonCreatorContainer = React.forwardRef((props: any, ref) => {
   const { current, stepData, setStepData, setCurrent, ...others } = props;
   const _current = current as number;
 
   return (
-    <SubjectWrapper
+    <FormWrapper
       {...others}
       ref={ref as React.LegacyRef<HTMLDivElement> | undefined}
     >
@@ -37,38 +35,18 @@ const SubjectContainer = React.forwardRef((props: any, ref) => {
         inn={_current === 0}
         others={{ setStepData, setCurrent }}
       />
-      <Animate
-        children={SubjectInfo}
-        inn={_current === 1}
-        others={{ setStepData, setCurrent }}
-      />
-      <Animate
-        children={SubjectSummary}
-        inn={_current === 2}
-        others={{ setStepData, setCurrent }}
-      />
-    </SubjectWrapper>
+    </FormWrapper>
   );
 });
 
-export default function Subject() {
+export default function LessonCreator() {
   const [current, setCurrent] = useState(0);
   const [stepData, setStepData] = useState(data);
 
   return (
     <Animate
-      children={SubjectContainer}
+      children={LessonCreatorContainer}
       others={{ current, stepData, setStepData, setCurrent }}
     />
   );
 }
-
-const SubjectWrapper = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  width: 60%;
-  min-height: 82vh;
-  z-index: 2;
-`;

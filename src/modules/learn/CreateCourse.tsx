@@ -16,6 +16,7 @@ import Instructors from "../../_shared/components/form/Instructors";
 import { DataProps, InstructorData } from "./@types";
 import { StyledDrawer } from "../../_shared/components/StyledDrawer";
 import ViewInstructor from "../../_shared/components/form/ViewInstructor";
+import { FormWrapper } from "../../_shared/components/form/@styles";
 
 const data: DataProps[] = [
   { title: "Personal Info", status: "wait" },
@@ -58,7 +59,7 @@ const CreateCourseContainer = React.forwardRef((props: any, ref) => {
   });
 
   return (
-    <CreateCourseWrapper
+    <FormWrapper
       {...others}
       ref={ref as React.LegacyRef<HTMLDivElement> | undefined}
     >
@@ -107,7 +108,7 @@ const CreateCourseContainer = React.forwardRef((props: any, ref) => {
         inn={_current === 5}
         others={{ setStepData, setCurrent }}
       />
-    </CreateCourseWrapper>
+    </FormWrapper>
   );
 });
 
@@ -160,15 +161,5 @@ export default function CreateCourse() {
     </>
   );
 }
-
-const CreateCourseWrapper = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  width: 60%;
-  min-height: 82vh;
-  z-index: 2;
-`;
 
 const ButtonWrapper = styled.div``;

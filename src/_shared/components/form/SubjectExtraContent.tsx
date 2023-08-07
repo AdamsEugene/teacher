@@ -82,6 +82,7 @@ export default function SubjectExtraContent(props: Props) {
                       placeholder="Textarea"
                       name="biography"
                       defaultValue={textValue}
+                      autoFocus
                       onChange={(value) => setTextValue(value)}
                     />
                     <ButtonWrapper>
@@ -227,6 +228,7 @@ export default function SubjectExtraContent(props: Props) {
                     placeholder="Textarea"
                     name="biography"
                     defaultValue={textValue}
+                    autoFocus
                     onChange={(value) => setTextValue(value)}
                   />
                   <ButtonWrapper>
