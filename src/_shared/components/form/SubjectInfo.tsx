@@ -12,12 +12,12 @@ import {
   Panel,
   Tag,
   TagInput,
-  useToaster,
+  // useToaster,
 } from "rsuite";
 import AddOutlineIcon from "@rsuite/icons/AddOutline";
 import CloseIcon from "@rsuite/icons/Close";
 
-import CustomMessage from "../Message";
+// import CustomMessage from "../Message";
 import SubjectExtraContent from "./SubjectExtraContent";
 import { KeyValue } from "./@types";
 import { StyledDrawer } from "../StyledDrawer";
@@ -30,21 +30,27 @@ const SubjectInfo = React.forwardRef((props: any, ref) => {
   const [textValue, setTextValue] = useState("");
   const { ...others } = props;
 
-  const toaster = useToaster();
-  const message = <CustomMessage text="Successfully Added" type="error" />;
+  // const toaster = useToaster();
+  // const message = <CustomMessage text="Successfully Added" type="error" />;
 
-  const save = async () => {
-    await toaster.push(message, { duration: 5000, placement: "topEnd" });
+  // const save = async () => {
+  //   await toaster.push(message, { duration: 5000, placement: "topEnd" });
+  // };
+
+  const deleteMe = () => {
+    console.log(contentName);
+    setExtraContents([]);
   };
 
   const handleOpenModal = () => {
     setOpenModal(true);
     setTextValue("");
+    deleteMe();
   };
 
-  const handleCloseModal = () => {
-    setOpenModal(false);
-  };
+  // const handleCloseModal = () => {
+  //   setOpenModal(false);
+  // };
 
   const handleOpenExpandModal = () => {
     setOpenExpandModal(true);
@@ -54,10 +60,10 @@ const SubjectInfo = React.forwardRef((props: any, ref) => {
     setOpenExpandModal(false);
   };
 
-  const addContent = () => {
-    setExtraContents((p) => [...p, { key: contentName, value: textValue }]);
-    handleCloseModal();
-  };
+  // const addContent = () => {
+  //   setExtraContents((p) => [...p, { key: contentName, value: textValue }]);
+  //   handleCloseModal();
+  // };
 
   return (
     <SubjectInfoWrapper
