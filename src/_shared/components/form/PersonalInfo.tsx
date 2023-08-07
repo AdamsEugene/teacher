@@ -16,6 +16,7 @@ import {
 } from "rsuite";
 import AvatarUploader from "../AvatarUploader";
 import { DataProps } from "../../../modules/learn/@types";
+import { CardContent } from "./@styles";
 
 const data = ["Lloyd", "Alice", "Julia", "Albert"].map((item) => ({
   label: item,
@@ -131,11 +132,4 @@ const PersonalInfoWrapper = styled.div`
   position: absolute;
   top: 140px;
   width: 100%;
-`;
-
-const CardContent = styled.div`
-  width: 100%;
-  height: 100%;
-  padding: 0px 16px 16px 16px;
-  margin-bottom: 32px;
 `;
