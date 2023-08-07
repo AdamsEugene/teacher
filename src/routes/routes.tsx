@@ -13,9 +13,9 @@ const signupChildren: RouteObject[] = [
     errorElement: <h1>signup</h1>,
   },
   {
-    id: K.OTP.id,
-    path: K.OTP.path,
-    element: <K.OTP.element />,
+    id: K.O_T_P.id,
+    path: K.O_T_P.path,
+    element: <K.O_T_P.element />,
     errorElement: <h1>OTP</h1>,
   },
   {
@@ -39,7 +39,7 @@ const planChildren: RouteObject[] = [
     element: <K.createSubject.element />,
     errorElement: <h1>createSubject</h1>,
     handle: {
-      crumb: () => "Create",
+      crumb: () => "Create Subject",
     },
   },
   {
@@ -49,6 +49,24 @@ const planChildren: RouteObject[] = [
     errorElement: <h1>subjectCreate</h1>,
     handle: {
       crumb: () => "Subject",
+    },
+  },
+  {
+    id: K.createLesson.id,
+    path: K.createLesson.path,
+    element: <K.createLesson.element />,
+    errorElement: <h1>subjectCreate</h1>,
+    handle: {
+      crumb: () => "Create Lesson",
+    },
+  },
+  {
+    id: K.createTeachersGuide.id,
+    path: K.createTeachersGuide.path,
+    element: <K.createTeachersGuide.element />,
+    errorElement: <h1>createTeachersGuide</h1>,
+    handle: {
+      crumb: () => "Create Teachers Guide",
     },
   },
 ];

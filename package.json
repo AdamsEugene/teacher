@@ -12,6 +12,7 @@
   "dependencies": {
     "@ckeditor/ckeditor5-build-decoupled-document": "^38.1.1",
     "@ckeditor/ckeditor5-react": "^6.1.0",
+    "@faker-js/faker": "^8.0.2",
     "@reduxjs/toolkit": "^1.9.5",
     "localforage": "^1.10.0",
     "react": "^18.2.0",

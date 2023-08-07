@@ -15,7 +15,7 @@ export interface RouteConstant {
   login: Route;
   signupPage: Route;
   signup: Route;
-  OTP: Route;
+  O_T_P: Route;
   signupForm: Route;
   forgotPassword: Route;
   home: Route;
@@ -34,5 +34,7 @@ export interface RouteConstant {
   planOutlet: Route;
   createSubject: Route;
   subjectCreate: Route;
+  createLesson: Route;
+  createTeachersGuide: Route;
   settings: Route;
 }

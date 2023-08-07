@@ -117,8 +117,8 @@ const GlobalStyle = createGlobalStyle`
 
   .rs-picker-default .rs-picker-toggle.rs-btn {
     background:${({ theme }) => theme.colors.background.primary} !important;
-    border-color:${({ theme }) => theme.colors.border.primary} !important;
-    border:none !important;
+    border: 1px solid ${({ theme }) => theme.colors.border.primary} !important;
+    /* border:none !important; */
   }
 
   .rs-picker-input {
@@ -126,7 +126,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .rs-picker-menu {
-    background:${({ theme }) => theme.colors.background.primary} !important;
+    background:${({ theme }) => theme.colors.background.cards} !important;
     border-color:${({ theme }) => theme.colors.border.primary} !important;
   }
 
@@ -143,11 +143,20 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .rs-picker-select-menu-item.rs-picker-select-menu-item-active {
-    background:${({ theme }) => theme.colors.background.cards} !important;
+    background:${({ theme }) => theme.colors.background.primary} !important;
   }
 
   .rs-picker-select-menu-item.rs-picker-select-menu-item-focus, .rs-picker-select-menu-item:focus, .rs-picker-select-menu-item:hover {
-     background:${({ theme }) => theme.colors.background.cards} !important;
+     background:${({ theme }) => theme.colors.background.primary} !important;
+     color: ${({ theme }) => theme.colors.background.main} !important;
+  }
+
+  .rs-picker-select-menu-item {
+     color: ${({ theme }) => theme.colors.text.primary} !important;
+  }
+
+  .rs-picker-has-value .rs-btn .rs-picker-toggle-value, .rs-picker-has-value .rs-picker-toggle .rs-picker-toggle-value {
+     color: ${({ theme }) => theme.colors.text.primary} !important;
   }
 
   /* UPLOAD */
@@ -242,8 +251,11 @@ const GlobalStyle = createGlobalStyle`
       background: ${({ theme }) => theme.colors.background.primary};
       border-radius: 0 0 16px 16px !important;
       min-height: 100px !important;
-      width: 100% !important;
-      border: none;
+      width: calc(100% - 2px) !important;
+      margin-left: 1px;
+      border-left: 1px solid  ${({ theme }) => theme.colors.border.primary};
+      border-right: 1px solid  ${({ theme }) => theme.colors.border.primary};
+      border-bottom: 1px solid  ${({ theme }) => theme.colors.border.primary};
     }
     .ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
       border: none;
@@ -327,6 +339,59 @@ const GlobalStyle = createGlobalStyle`
 
     .rs-modal-title {
       color: ${({ theme }) => theme.colors.text.primary};
+    }
+
+    /* CALENDER */ 
+    .rs-calendar-month-view .rs-calendar-month-dropdown {
+      background: ${({ theme }) => theme.colors.background.primary};
+    }
+
+    .rs-calendar-bordered .rs-calendar-table, 
+    .rs-calendar-bordered .rs-calendar-table-header-row 
+    .rs-calendar-table-header-cell, 
+    .rs-calendar-bordered 
+    .rs-calendar-table-row:not(:last-child) 
+    .rs-calendar-table-cell, 
+    .rs-calendar-bordered .rs-calendar-month-dropdown,
+    .rs-calendar-month-dropdown-row:not(:last-child) {
+       border: 1px solid ${({ theme }) =>
+         theme.colors.border.primary} !important;
+    }
+
+    .rs-calendar-table-cell-content:hover,
+    .rs-calendar-month-dropdown-cell-content:hover {
+      background: ${({ theme }) => theme.colors.background.cards};
+    }
+
+    .rs-calendar-panel .rs-calendar-table-cell-selected .rs-calendar-table-cell-content {
+      box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.background.main};
+    }
+
+    .rs-calendar-panel .rs-calendar-table-cell-is-today .rs-calendar-table-cell-day,
+    .rs-calendar-month-dropdown-cell-active .rs-calendar-month-dropdown-cell-content {
+      background: ${({ theme }) => theme.colors.background.main};
+    }
+
+    .rs-calendar-table-header-cell, .rs-calendar-btn-close {
+       background: ${({ theme }) => theme.colors.background.cards};
+    }
+
+    .rs-popover[class*=placement-top].rs-anim-in {
+      background: ${({ theme }) => theme.colors.background.cards};
+    }
+
+    /* TABLE */
+
+    .rs-table-hover .rs-table-row:hover .rs-table-cell, 
+    .rs-table-hover .rs-table-row:hover .rs-table-cell-group, 
+    .rs-table-row-expanded, .rs-table-row-header, 
+    .rs-table-row-header .rs-table-cell {
+      background: ${({ theme }) => theme.colors.background.cards};
+    }
+
+    .rs-table-cell {
+      background: ${({ theme }) => theme.colors.background.primary};
+      border-color:${({ theme }) => theme.colors.border.primary};
     }
 `;
 
